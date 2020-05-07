@@ -1,0 +1,46 @@
+@mixin transition($type:all, $time:.3s, $mode:ease)
+{
+	-webkit-transition: $type $time $mode;
+	-moz-transition: $type $time $mode;
+	-ms-transition: $type $time $mode;
+	-o-transition: $type $time $mode;
+	transition: $type $time $mode;
+}
+
+@mixin placeholder($color)
+{
+	&::-webkit-input-placeholder { color: $color }
+	&:-moz-placeholder { color: $color }
+	&::-moz-placeholder { color: $color }
+	&:-ms-input-placeholder { color: $color }
+	&::-ms-input-placeholder { color: $color }
+	&:placeholder-shown { color: $color }
+}
+
+@mixin opacity($opacity:0, $filter:0)
+{
+	-webkit-opacity: $opacity;
+	-moz-opacity: $opacity;
+	-ms-opacity: $opacity;
+	-o-opacity: $opacity;
+	opacity: $opacity;
+	filter:alpha(opacity=$filter);
+}
+
+@mixin transform($transform)
+{
+	-webkit-transform: $transform;
+	-moz-transform: $transform;
+	-ms-transform: $transform;
+	-o-transform: $transform;
+	transform: $transform;
+}
+
+@mixin prefixit($attribute, $value)
+{
+	#{'-' + webkit + '-' + $attribute}: $value;
+	#{'-' + moz + '-' + $attribute}: $value;
+	#{'-' + ms + '-' + $attribute}: $value;
+	#{'-' + o + '-' + $attribute}: $value;
+	$attribute: $value;
+}
